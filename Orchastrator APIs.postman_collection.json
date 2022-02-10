@@ -1,0 +1,135 @@
+{
+	"info": {
+		"_postman_id": "8cc60140-8343-45b7-aba6-6b83853ddfec",
+		"name": "Orchastrator APIs",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "New Request",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"mobileNumber\": \"918448556649\",\r\n    \"templateId\": \"c6aecef6-bcb0-4fb1-8100-28c094e3bc6b\",\r\n    \"templateParams\": [\r\n        \"Agent\",\r\n        \"Local Address\",\r\n        \"Tracking code\"\r\n    ],\r\n    \"mediaMessage\": \"Good news! Your order has just been sent and is currently on its way to be delivered as quickly as possible. {{1}} will deliver your package to your address on {{2}}. With this Track & Trace code, you can continue to follow your order to your doorstep {{3}}. We hope you enjoy your new product!\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:3000/sendTemplate",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"sendTemplate"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Send mssg",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"user\": {\r\n        \"name\": \"Abhinav\",\r\n        \"number\": 918448556649\r\n    },\r\n    \"service\": \"Gupshup\",\r\n    \"template\": {\r\n        \"templateID\": \"DummyTemplate\",\r\n        \"params\": [\r\n            \"Agent\",\r\n            \"Local Address\",\r\n            \"Tracking code\"\r\n        ]\r\n    }\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8000/message",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8000",
+					"path": [
+						"message"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "http://localhost:8000/api/v1/template/msg",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-type",
+						"value": "application/x-www-form-urlencoded",
+						"type": "text"
+					},
+					{
+						"key": "apikey",
+						"value": "fv1irahwpfux9ov6fireebdgt8jbxhl5",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"source\": \"917834811114\",\r\n    \"destination\": \"918448556649\",\r\n    \"template\": {\r\n        \"id\": \"c6aecef6-bcb0-4fb1-8100-28c094e3bc6b\",\r\n        \"params\": [\r\n            \"Agent\",\r\n            \"Local Address\",\r\n            \"Tracking code\"\r\n        ]\r\n    }\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8000/api/v1/template/msg",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8000",
+					"path": [
+						"api",
+						"v1",
+						"template",
+						"msg"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "http://localhost:8000/orchestrator",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8000/orchestrator",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8000",
+					"path": [
+						"orchestrator"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}
